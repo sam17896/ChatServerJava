@@ -264,7 +264,7 @@ public class client_frame extends javax.swing.JFrame
                 ta_chat.append("Cannot Connect! Try Again. \n");
                 tf_username.setEditable(true);
             }
-            
+            tf_chat.setEditable(true);
             ListenThread();
             
         } else if (isConnected == true) 
