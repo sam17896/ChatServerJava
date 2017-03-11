@@ -285,18 +285,10 @@ public class server_frame extends javax.swing.JFrame
     public void tellEveryone(String message) 
     {
 	Iterator it = clientOutputStreams.iterator();
-
-        while (it.hasNext()) 
-        {
-            try 
-            {
-                PrintWriter writer = (PrintWriter) it.next();
-		writer.println(message);
-	        writer.flush();
-                
-                String[] tokens = message.split(":");
-                
-                if(!tokens[1].equals(" ")){
+        String[] tokens = message.split(":");
+        
+        
+            if(!tokens[1].equals(" ")){
                     if(tokens[0].equals("Server")){
                         ta_chat.append("You: "+tokens[1]+"\n");
                     }else{
@@ -304,7 +296,16 @@ public class server_frame extends javax.swing.JFrame
                     }
                 }
                 ta_chat.setCaretPosition(ta_chat.getDocument().getLength());
-
+        
+        
+        while (it.hasNext()) 
+        {
+            try 
+            {
+                PrintWriter writer = (PrintWriter) it.next();
+		writer.println(message);
+	        writer.flush();    
+            
             } 
             catch (Exception ex) 
             {
